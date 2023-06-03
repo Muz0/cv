@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  background-image: url("../img/header_blur.jpg");
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  text-align: center;
+  -webkit-user-select: none;
+  user-select: none;
+
+  > img {
+    width: 100px;
+    height: 100px;
+    margin: 15px 0;
+    filter: blur(3px);
+  }
+
+  > #subject {
+    color: #ffffff;
+    position: absolute;
+    text-align: center;
+
+    > #first_name {
+      font-weight: 700;
+      margin-bottom: 10px;
+      border: 2px solid;
+      font-size: 20px;
+      padding: 5px 25px;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+
+  > aside {
+    background-color: #ebebeb;
+    font-size: 11pt;
+
+    > #profile_image {
+      display: flex;
+      justify-content: center;
+
+      > img {
+        border-radius: 50%;
+        width: 162px;
+        height: 162px;
+        /* animations */
+        transition: 0.25s;
+
+        &:hover {
+          transition: 0.5s;
+          transform: scale(1.25);
+        }
+      }
+    }
+
+    > section {
+      margin: 25px 20px 0;
+
+      > table {
+        width: 100%;
+        border-bottom: 1px solid #a1a1a1;
+        border-collapse: collapse;
+
+        > caption {
+          font-size: 16pt;
+          font-weight: 700;
+          text-align: left;
+          padding: 5px 0;
+        }
+        > tbody {
+          > tr {
+            border-top: 1px solid #a1a1a1;
+            > .bold_table {
+              font-weight: 700;
+            }
+            > td {
+              padding: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*---------------------------------*/
+
+#profile_description {
+  width: 350px;
+}
+
+/*---------------------------------------------------*/
+
+form {
+  display: none;
+}
+
+/*-------------------------------------------*/
+
+.fix-resp-date {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+
+  > ul {
+    margin-right: 15px;
+  }
+}
+
+/* Margins */
+#jobs {
+  margin-left: 25px;
+}
+
+hr {
+  margin: 4px 0;
+}
+
+#certificates * {
+  margin: 0;
+}
+
+.bold_certificates {
+  font-weight: bold;
+}
+
+h2,
+h3 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  font-size: 12pt;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .job-date {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* For mobile */
+  header #subject {
+    display: none;
+  }
+
+  aside {
+    width: 100%;
+  }
+
+  #jobs {
+    display: none;
+  }
+}
