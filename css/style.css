@@ -1,0 +1,244 @@
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #111;
+  background-color: #f9f9f9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit; /* Fixed missing color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: #004a99;
+  outline: none;
+}
+
+ul{
+  margin-block-start: 0.5em;
+  padding-inline-start: 20px;
+}
+
+/* CSS Variables for main colors */
+:root {
+  --primary-blue: #0073e6;
+  --primary-blue-hover: #005bb5;
+  --text-dark: #111;
+  --text-light: #555;
+  --background-light: #ececec;
+  --background-white: #fff;
+  --border-gray: #bbb;
+  --border-light: #ddd;
+}
+
+/* Layout */
+main.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.sidebar {
+  background: var(--background-light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+  max-height: fit-content;
+}
+
+.aside-section + .aside-section {
+  margin-top: 2rem;
+}
+
+.profile-photo {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+  transition: transform 0.3s ease;
+}
+
+.profile-photo:hover,
+.profile-photo:focus {
+  transform: scale(1.2);
+  outline: none;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #222;
+  border-bottom: 2px solid var(--primary-blue);
+  padding-bottom: 0.3rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+table tbody tr + tr {
+  border-top: 1px solid var(--border-gray);
+}
+
+th[scope="row"] {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.35rem 0.5rem 0.35rem 0;
+  vertical-align: top;
+  color: #333;
+}
+
+td {
+  padding: 0.35rem 0;
+  vertical-align: top;
+  color: var(--text-light);
+}
+
+.contact-action {
+  text-align: center;
+  padding-top: 0.8rem;
+}
+
+.button {
+  cursor: pointer;
+  background-color: var(--primary-blue);
+  border: none;
+  color: var(--background-white);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 220px;
+}
+
+.main-content {
+  background: var(--background-white);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 0.1);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-dark);
+  border-bottom: 3px solid var(--primary-blue);
+  padding-bottom: 0.5rem;
+}
+
+.work-experience {
+  margin-bottom: 2rem;
+}
+
+.work-experience h2.title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+
+.work-experience h3.position {
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.job-date {
+  flex: 0 0 35%;
+  color: #666;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-light);
+  margin: 1.5rem 0;
+}
+
+/* Lists for references and links */
+#references ul,
+#links ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#references li,
+#links li {
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+#references li a,
+#links li a {
+  color: var(--primary-blue);
+}
+
+#references li a:hover,
+#links li a:hover {
+  color: #004a99;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  main.layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sidebar {
+    max-height: none;
+    padding-bottom: 1rem;
+  }
+
+  .main-content {
+    max-height: none;
+  }
+
+  .header-subject h1 {
+    display: none;
+  }
+
+  .header-logos {
+    opacity: 0.6;
+    gap: 1rem;
+  }
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
