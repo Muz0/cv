@@ -188,7 +188,7 @@
   ];
   // DOM Elements
   const jobsContainer = document.getElementById("jobs");
-  const certificatesContainer = jobsContainer;
+  const certificatesContainer = document.getElementById("certificates");
 
   // Separate global display limits
   const MAX_JOBS_RENDERED = 1;
@@ -288,9 +288,10 @@
   const renderCertificates = () => {
     if (!certificatesContainer) return;
 
-    // certificatesContainer.innerHTML = ""; // reset
+    certificatesContainer.innerHTML = ""; // reset
 
-    const title = createElement("h1", { text: "Certificates" });
+    // const title = createElement("h1", { text:  });
+    const title = createElement("h1", { text: "Certificates", classList: ["title"] });
     const ul = createElement("ul");
 
     certificates
