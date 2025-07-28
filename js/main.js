@@ -24,7 +24,7 @@
     },
     {
       name: "Israel-Azerbaijani Training Center (Technest)",
-      display: true,
+      // display: true,
       description: "Full-Stack Development",
       date: "2023",
       category: "Technical",
@@ -38,28 +38,28 @@
     },
     {
       name: "Yelo Bank",
-      display: true,
+      // display: true,
       description: "Career Trainings",
       date: "2023",
       category: "Professional",
     },
     {
       name: "Financial Literacy Forum (UFAZ & UNEC)",
-      display: true,
+      // display: true,
       description: "Project Planner and Organizer",
       date: "2023",
       category: "Leadership",
     },
     {
       name: "U.S. Department of State Program Alumni",
-      display: true,
+      // display: true,
       description: "FLEX/ALEX’22 Washington, D.C.",
       date: "2022",
       category: "Academic Exchange",
     },
     {
       name: "Iowa State University",
-      display: true,
+      // display: true,
       description: "Mechanics Assistant at Plane Model Contest",
       date: "2022",
       category: "Academic",
@@ -73,14 +73,14 @@
     },
     {
       name: "European Youth Parliament",
-      display: true,
+      // display: true,
       description: "THEIA, Baku, Azerbaijan",
       date: "2022",
       category: "Leadership",
     },
     {
       name: "TECH LIBERTY Forum",
-      display: true,
+      // display: true,
       description:
         "Cryptocurrencies and Cybersecurity by Friedrich Naumann Foundation, Tbilisi, Georgia",
       date: "2021",
@@ -88,7 +88,7 @@
     },
     {
       name: "Preparing Global Leaders Forum",
-      display: true,
+      // display: true,
       description: "Certificate of Recognition",
       date: "2020",
       category: "Leadership",
@@ -191,7 +191,7 @@
   const certificatesContainer = jobsContainer;
 
   // Separate global display limits
-  const MAX_JOBS_RENDERED = 20;
+  const MAX_JOBS_RENDERED = 1;
   const MAX_CERTIFICATES_RENDERED = 100;
 
   // Number of jobs to show initially
@@ -256,7 +256,9 @@
       respDateDiv.append(ul, dateEl);
       container.append(h2, h3, respDateDiv);
       jobsContainer.appendChild(container);
-      jobsContainer.appendChild(createElement("hr"));
+      if (MAX_JOBS_RENDERED !== 1) {
+        jobsContainer.appendChild(createElement("hr"));
+      }
     });
 
     // Add Show More / Show Less button if needed
@@ -289,7 +291,6 @@
     // certificatesContainer.innerHTML = ""; // reset
 
     const title = createElement("h1", { text: "Certificates" });
-    const hr = createElement("hr");
     const ul = createElement("ul");
 
     certificates
@@ -299,14 +300,14 @@
         const li = createElement("li");
         const nameSpan = createElement("span", {
           text: name,
-          classList: ["bold_certificates"],
+          // classList: ["bold_certificates"],
         });
         li.appendChild(nameSpan);
-        li.append(` ${description}${date ? `, ${date}` : ""}`);
+        li.append(`: ${description}${date ? `, ${date}` : ""}`);
         ul.appendChild(li);
       });
 
-    certificatesContainer.append(title, hr, ul);
+    certificatesContainer.append(title, ul);
   };
 
   // Initialize all
