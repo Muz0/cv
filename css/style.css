@@ -108,6 +108,11 @@ main.layout {
   gap: 2rem;
 }
 
+.main-sections li,
+.main-sections p{
+  text-align: justify;
+}
+
 /* CARDS */
 .main-content {
   background: var(--background-white);
