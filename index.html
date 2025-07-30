@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+
     <meta
       name="description"
       content="Muzaffar Mustafayev – Graduate Chemical engineer with hands-on experience in catalyst monitoring, reactor operations, and process optimization. Also skilled in technical support and data analysis."
@@ -18,7 +22,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/style.css?ver=1.2" />
+    <link rel="stylesheet" href="css/style.css?ver=1.2.1" />
   </head>
   <body>
     <main class="layout" role="main">
@@ -238,18 +242,29 @@
 
     <footer role="contentinfo" class="site-footer"></footer>
     <script>
-      if (window.innerWidth > 768) {
-        const img = document.createElement("img");
-        img.src = "img/Muzaffar.webp";
-        img.alt = "Portrait photo of Muzaffar Mustafayev";
-        img.className = "profile-photo";
-        img.width = 192;
-        img.height = 192;
-        img.style.width = "160px";
-        img.style.height = "160px";
-        document.getElementById("profile_image").appendChild(img);
-      }
+      const loadLandscapeImage = () => {
+        const container = document.getElementById("profile_image");
+        const photo = container?.querySelector("img.profile-photo");
+
+        const isLandscape = window.innerWidth > window.innerHeight;
+
+        if (isLandscape && !photo) {
+          const img = new Image(160, 160);
+          img.src = "img/Muzaffar.webp";
+          img.alt = "Portrait photo of Muzaffar Mustafayev";
+          img.className = "profile-photo";
+          img.style.width = "160px";
+          img.style.height = "160px";
+          container.appendChild(img);
+        } else if (!isLandscape && photo) {
+          photo.remove();
+        }
+      };
+
+      window.addEventListener("load", loadLandscapeImage);
+      window.addEventListener("resize", loadLandscapeImage);
     </script>
+
     <script src="./js/main.js"></script>
     <script>
       document
