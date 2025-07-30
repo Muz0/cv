@@ -1,4 +1,15 @@
-/* Reset & Base */
+/* =================== RESET & VARIABLES =================== */
+:root {
+  --primary-blue: #0073e6;
+  --primary-blue-hover: #005bb5;
+  --text-dark: #111;
+  --text-light: #555;
+  --background-light: #ececec;
+  --background-white: #fff;
+  --border-gray: #bbb;
+  --border-light: #ddd;
+}
+
 *,
 *::before,
 *::after {
@@ -10,7 +21,7 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  color: #111;
+  color: var(--text-dark);
   background-color: #f9f9f9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,21 +35,8 @@ a {
 
 a:hover,
 a:focus {
-  color: #004a99;
+  color: var(--primary-blue-hover);
   outline: none;
-}
-
-.button {
-  cursor: pointer;
-  background-color: var(--primary-blue);
-  border: none;
-  color: var(--background-white);
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  max-width: 220px;
 }
 
 ul {
@@ -46,19 +44,7 @@ ul {
   padding-inline-start: 20px;
 }
 
-/* CSS Variables */
-:root {
-  --primary-blue: #0073e6;
-  --primary-blue-hover: #005bb5;
-  --text-dark: #111;
-  --text-light: #555;
-  --background-light: #ececec;
-  --background-white: #fff;
-  --border-gray: #bbb;
-  --border-light: #ddd;
-}
-
-/* MAIN LAYOUT */
+/* =================== LAYOUT =================== */
 main.layout {
   display: flex;
   flex-direction: row;
@@ -69,20 +55,39 @@ main.layout {
   padding: 0 1rem;
 }
 
-/* SIDEBAR */
 .sidebar {
   flex: 0 0 300px;
   background: var(--background-light);
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
-  max-height: fit-content;
 }
 
 .aside-section + .aside-section {
   margin-top: 2rem;
 }
 
+.main-sections {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main-content{
+  background: var(--background-white);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 0.1);
+  box-sizing: border-box;
+}
+
+.main-sections li,
+.mobile-profile-summary p {
+  text-align: justify;
+}
+
+/* =================== COMPONENTS =================== */
 .profile-photo {
   display: block;
   margin: 0 auto;
@@ -100,107 +105,22 @@ main.layout {
   outline: none;
 }
 
-/* RIGHT SIDE: vertical stack */
-.main-sections {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.main-sections li,
-.main-sections p{
-  text-align: justify;
-}
-
-/* CARDS */
-.main-content {
-  background: var(--background-white);
-  padding: 1.5rem 2rem;
+.mobile-profile-summary {
+  display: none;
+  background: var(--background-light);
+  padding: 1rem 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 1px 8px rgb(0 0 0 / 0.1);
-  box-sizing: border-box;
-  max-height: fit-content;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
 }
 
-/* Typography */
-h1,
-h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  /* color: #222; */
-  color: var(--text-dark);
-  border-bottom: 2px solid var(--primary-blue);
-  padding-bottom: 0.3rem;
+.mobile-profile-summary .mobileHidden {
+  display: none;
 }
 
-.work-experience h3.position {
-  font-weight: 600;
-  font-style: italic;
-  margin-bottom: 0.5rem;
-  color: #444;
+.mobile-profile-summary table {
+  border-top: 2px solid var(--primary-blue);
 }
 
-/* Table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-table tbody tr + tr {
-  border-top: 1px solid var(--border-gray);
-}
-
-th[scope="row"] {
-  text-align: left;
-  font-weight: 700;
-  padding: 0.35rem 0.5rem 0.35rem 0;
-  vertical-align: top;
-  color: #333;
-}
-
-td {
-  padding: 0.35rem 0;
-  vertical-align: top;
-  color: var(--text-light);
-}
-.job-date {
-  flex: 0 0 35%;
-  color: #666;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-align: right;
-  white-space: nowrap;
-}
-
-/* Lists for references and links */
-#references ul,
-#links ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-#references li,
-#links li {
-  margin-bottom: 0.7rem;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-#references li a,
-#links li a {
-  color: var(--primary-blue);
-}
-
-#references li a:hover,
-#links li a:hover {
-  color: #004a99;
-}
-
-/* Mail circle button */
 .mail-circle-btn {
   position: fixed;
   bottom: 1.5rem;
@@ -233,20 +153,97 @@ td {
   stroke: currentColor;
 }
 
-.mobile-profile-summary {
-  display: none;
-  background: var(--background-light);
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  /* margin-bottom: 1.5rem; */
-  box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+.button {
+  cursor: pointer;
+  background-color: var(--primary-blue);
+  border: none;
+  color: var(--background-white);
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 220px;
 }
 
-.mobile-profile-summary table{
-  border-top: 2px solid var(--primary-blue);
+/* =================== TYPOGRAPHY =================== */
+h1,
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+  border-bottom: 2px solid var(--primary-blue);
+  padding-bottom: 0.3rem;
 }
 
-/* Responsive */
+.work-experience h3.position {
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+/* =================== TABLE =================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+table tbody tr + tr {
+  border-top: 1px solid var(--border-gray);
+}
+
+th[scope="row"] {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.35rem 0.5rem 0.35rem 0;
+  vertical-align: top;
+  color: #333;
+}
+
+td {
+  padding: 0.35rem 0;
+  vertical-align: top;
+  color: var(--text-light);
+}
+
+.job-date {
+  flex: 0 0 35%;
+  color: #666;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* =================== LISTS =================== */
+#references ul,
+#links ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#references li,
+#links li {
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+#references li a,
+#links li a {
+  color: var(--primary-blue);
+}
+
+#references li a:hover,
+#links li a:hover {
+  color: var(--primary-blue-hover);
+}
+
+/* =================== MEDIA QUERIES =================== */
 @media (max-width: 768px) {
   main.layout {
     flex-direction: column;
@@ -255,6 +252,7 @@ td {
   .mobile-profile-summary {
     display: block;
   }
+
   .main-sections {
     width: 100%;
   }
@@ -264,7 +262,39 @@ td {
   }
 }
 
-/* Accessibility: reduce motion */
+@media print {
+  * {
+    background: var(--background-white);
+  }
+
+  body {
+    font-size: 12pt;
+  }
+
+  main.layout {
+    margin: 0;
+  }
+
+  nav,
+  footer,
+  button,
+  .mobile-profile-summary,
+  .sidebar #links,
+  .sidebar #profile_image,
+  .sidebar #contact h2,
+  .mail-circle-btn {
+    display: none !important;
+  }
+
+  .sidebar {
+    display: block;
+  }
+
+  .sidebar #references ul {
+    display: inline-flex;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

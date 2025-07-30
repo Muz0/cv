@@ -256,9 +256,6 @@
       respDateDiv.append(ul, dateEl);
       container.append(h2, h3, respDateDiv);
       jobsContainer.appendChild(container);
-      if (MAX_JOBS_RENDERED !== 1) {
-        jobsContainer.appendChild(createElement("hr"));
-      }
     });
 
     // Add Show More / Show Less button if needed
