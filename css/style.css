@@ -220,25 +220,21 @@ td {
 }
 
 /* =================== LISTS =================== */
-#references ul,
 #links ul {
   list-style: none;
   padding-left: 0;
 }
 
-#references li,
 #links li {
   margin-bottom: 0.7rem;
   font-size: 0.95rem;
   color: #333;
 }
 
-#references li a,
 #links li a {
   color: var(--primary-blue);
 }
 
-#references li a:hover,
 #links li a:hover {
   color: var(--primary-blue-hover);
 }
@@ -288,10 +284,6 @@ td {
 
   .sidebar {
     display: block;
-  }
-
-  .sidebar #references ul {
-    display: inline-flex;
   }
 }
 
