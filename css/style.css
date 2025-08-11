@@ -56,7 +56,7 @@ main.layout {
 }
 
 .sidebar {
-  flex: 0 0 300px;
+  flex: 0 0 305px;
   background: var(--background-light);
   padding: 1.5rem;
   border-radius: 8px;
@@ -74,7 +74,7 @@ main.layout {
   gap: 2rem;
 }
 
-.main-content{
+.main-content {
   background: var(--background-white);
   padding: 1.5rem 2rem;
   border-radius: 8px;
