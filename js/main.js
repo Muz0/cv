@@ -104,7 +104,7 @@
         "Monitored 4 catalytic reforming reactors daily, analyzing data from 10+ sensors to track temperature, pressure, and catalyst performance at console; logged values for reporting.",
         "Contributed to steady octane yield by assisting in process parameter adjustments and hydrogen recovery optimization, aligning values with manuals and lab results.",
         "Assisted in start up of catalyst regeneration unit, and bringing up to operational specifications, implemented experimental “Gray Burn” mode. ",
-        "Defended a Diploma project on “Mechanisms of Catalyst Deactivation and Regeneration in Catalytic Reforming Unit” with Excellent Evaluation. ",
+        "Defended a Diploma project on “Mechanisms of Catalyst Deactivation and Regeneration in Catalytic Reforming Unit” with Excellent Academic Evaluation. ",
       ],
       date: "April – June 2025",
     },
@@ -288,7 +288,10 @@
     certificatesContainer.innerHTML = ""; // reset
 
     // const title = createElement("h1", { text:  });
-    const title = createElement("h1", { text: "Certificates", classList: ["title"] });
+    const title = createElement("h1", {
+      text: "Certificates",
+      classList: ["title"],
+    });
     const ul = createElement("ul");
 
     certificates
