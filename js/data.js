@@ -1,7 +1,7 @@
 export const profile = {
   name: "Muzaffar Mustafayev",
   summary:
-    "Graduate Process engineer experienced in catalyst monitoring, process optimization, and reactor operations.",
+    "Graduate Chemical engineer experienced in catalyst monitoring, process optimization, and reactor operations.",
   photo: {
     src: "img/Muzaffar.webp",
     width: 160,
@@ -12,7 +12,7 @@ export const profile = {
     {
       label: "Profile",
       value:
-        "Graduate Process engineer experienced in catalyst monitoring, process optimization, and reactor operations.",
+        "Graduate Chemical engineer experienced in catalyst monitoring, process optimization, and reactor operations.",
     },
     {
       label: "Bachelor's Degree",

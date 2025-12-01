@@ -6,6 +6,7 @@ import {
   renderJobs,
   renderCertificates,
   handleMobileToggle,
+  initThemeControls,
   loadLandscapeImage,
 } from "./ui.js";
 
@@ -16,6 +17,7 @@ const init = () => {
   renderJobs(jobs);
   renderCertificates(certificates);
   handleMobileToggle();
+  initThemeControls();
   loadLandscapeImage(profile);
   window.addEventListener("resize", () => loadLandscapeImage(profile));
 };

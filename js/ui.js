@@ -1,6 +1,8 @@
 export const INITIAL_VISIBLE_JOBS = 3;
 export const MAX_CERTIFICATES_RENDERED = 100;
 
+const THEME_STORAGE_KEY = "preferred-theme";
+
 export const state = {
   showAllJobs: false,
   elements: {},
@@ -23,6 +25,59 @@ const appendLines = (element, value) => {
     }
   });
 };
+
+const normalizeTheme = (theme) =>
+  theme === "dark" || theme === "light" ? theme : null;
+
+const storeThemePreference = (theme) => {
+  if (theme) {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } else {
+    localStorage.removeItem(THEME_STORAGE_KEY);
+  }
+};
+
+const applyThemePreference = (theme) => {
+  const normalized = normalizeTheme(theme);
+  if (normalized) {
+    document.body.dataset.theme = normalized;
+  } else {
+    document.body.removeAttribute("data-theme");
+  }
+  storeThemePreference(normalized);
+  return normalized;
+};
+
+const detectSystemPreference = () =>
+  window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+const updateThemeToggleLabel = (theme) => {
+  const { themeToggleBtn } = state.elements;
+  if (!themeToggleBtn) return;
+
+  if (!theme) {
+    themeToggleBtn.dataset.state = "system";
+    themeToggleBtn.setAttribute(
+      "aria-label",
+      "Using device theme. Single click to customize."
+    );
+    themeToggleBtn.setAttribute("aria-pressed", "false");
+  } else {
+    const label = theme === "dark" ? "dark" : "light";
+    themeToggleBtn.dataset.state = label;
+    themeToggleBtn.setAttribute(
+      "aria-label",
+      `Using ${label} theme. Single click toggles light/dark. Double-click to follow device.`
+    );
+    themeToggleBtn.setAttribute("aria-pressed", "true");
+  }
+};
+
+const getNextManualTheme = (current) =>
+  current === "dark" ? "light" : "dark";
+
+const getInitialManualTheme = () =>
+  detectSystemPreference() === "dark" ? "light" : "dark";
 
 const createValueElement = (detail) => {
   if (detail.link && !detail.tag) {
@@ -63,6 +118,7 @@ export const hydrateElements = () => {
     mobileDetails: document.getElementById("mobile-details"),
     mobileExtra: document.getElementById("mobileExtra"),
     toggleProfileBtn: document.getElementById("toggleProfile"),
+    themeToggleBtn: document.getElementById("themeToggle"),
   };
 };
 
@@ -230,6 +286,31 @@ export const handleMobileToggle = () => {
   toggleProfileBtn.addEventListener("click", () => {
     mobileExtra.classList.remove("mobileHidden");
     toggleProfileBtn.style.display = "none";
+  });
+};
+
+export const initThemeControls = () => {
+  const { themeToggleBtn } = state.elements;
+  if (!themeToggleBtn) return;
+
+  const storedTheme = normalizeTheme(localStorage.getItem(THEME_STORAGE_KEY));
+  const initialTheme = applyThemePreference(storedTheme);
+  updateThemeToggleLabel(initialTheme);
+
+  themeToggleBtn.addEventListener("click", (event) => {
+    if (event.detail > 1) return;
+    const currentTheme = document.body.dataset.theme || null;
+    const nextTheme = currentTheme
+      ? getNextManualTheme(currentTheme)
+      : getInitialManualTheme();
+    const appliedTheme = applyThemePreference(nextTheme);
+    updateThemeToggleLabel(appliedTheme);
+  });
+
+  themeToggleBtn.addEventListener("dblclick", (event) => {
+    event.preventDefault();
+    const appliedTheme = applyThemePreference(null);
+    updateThemeToggleLabel(appliedTheme);
   });
 };
 
