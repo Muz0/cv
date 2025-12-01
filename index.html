@@ -9,7 +9,7 @@
 
     <meta
       name="description"
-      content="Muzaffar Mustafayev – Graduate Chemical engineer with hands-on experience in catalyst monitoring, reactor operations, and process optimization. Also skilled in technical support and data analysis."
+      content="Muzaffar Mustafayev - Graduate Chemical engineer with hands-on experience in catalyst monitoring, reactor operations, and process optimization. Also skilled in technical support and data analysis."
     />
 
     <title>Chemical Engineer - Muzaffar Mustafayev</title>
@@ -38,56 +38,9 @@
           class="aside-section"
           aria-labelledby="personal-title"
         >
-          <h2 id="personal-title">Muzaffar Mustafayev</h2>
+          <h2 id="personal-title"></h2>
           <table>
-            <tbody>
-              <tr>
-                <th scope="row">Profile</th>
-                <td id="profile_description">
-                  Graduate Process engineer experienced in catalyst monitoring,
-                  process optimization, and reactor operations.
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Bachelor's Degree</th>
-                <td>
-                  <a
-                    href="https://www.ufaz.az/en/about-us/partner-universities/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >University of Strasbourg
-                    <br />
-                    Chemical Engineering
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Specialization</th>
-                <td>
-                  <a
-                    href="https://www.coursera.org/specializations/chemical-hazards-and-process-safety/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Chemical Hazards and Process Safety</a
-                  >
-                </td>
-              </tr>
-              <!-- <tr>
-                <th scope="row">Additional education</th>
-                <td>
-                  <a
-                    href="https://technest.idda.az/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Israel Azerbaijani Training Center</a
-                  >
-                </td>
-              </tr> -->
-              <tr>
-                <th scope="row">Languages</th>
-                <td>Azerbaijani, Russian, English, French</td>
-              </tr>
-            </tbody>
+            <tbody id="personal-details"></tbody>
           </table>
         </section>
 
@@ -98,117 +51,41 @@
         >
           <h2 id="contact-title">Contact</h2>
           <table>
-            <tbody>
-              <tr>
-                <th scope="row">Mobile</th>
-                <td><a href="tel:+994709966399">+994709966399</a></td>
-              </tr>
-              <tr>
-                <th scope="row">Email</th>
-                <td>
-                  <a href="mailto:muzaffar.mustafayev@ufaz.az"
-                    >muzaffar.mustafayev@ufaz.az</a
-                  >
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Address</th>
-                <td>
-                  <address>Baku, Azerbaijan</address>
-                </td>
-              </tr>
-            </tbody>
+            <tbody id="contact-details"></tbody>
           </table>
         </section>
 
         <section id="links" class="aside-section" aria-labelledby="links-title">
           <h2 id="links-title">Links</h2>
-          <ul>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/muzaffar-mustafayev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >LinkedIn</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/muzaffar_mustafayev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Instagram</a
-              >
-            </li>
-          </ul>
+          <ul id="links-list"></ul>
         </section>
       </aside>
 
       <div class="main-sections">
         <section class="mobile-profile-summary">
-          <h2>Muzaffar Mustafayev</h2>
-          <p>
-            Graduate Process engineer experienced in catalyst monitoring,
-            process optimization, and reactor operations.
-          </p>
+          <h2 id="mobile-name"></h2>
+          <p id="mobile-summary"></p>
           <button class="button" id="toggleProfile">More details</button>
           <div id="mobileExtra" class="mobileHidden">
             <table>
-              <tbody>
-                <tr>
-                  <th scope="row">Bachelor's Degree</th>
-                  <td>
-                    <a
-                      href="https://www.ufaz.az/en/about-us/partner-universities/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >University of Strasbourg
-                      <br />
-                      Chemical Engineering
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Specialization</th>
-                  <td>
-                    <a
-                      href="https://www.coursera.org/specializations/chemical-hazards-and-process-safety"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Chemical Hazards and Process Safety
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Languages</th>
-                  <td>Azerbaijani, Russian, English, French</td>
-                </tr>
-                <tr>
-                  <th scope="row">Mobile</th>
-                  <td><a href="tel:+994709966399">+994709966399</a></td>
-                </tr>
-                <tr>
-                  <th scope="row">Email</th>
-                  <td>
-                    <a href="mailto:muzaffar.mustafayev@ufaz.az"
-                      >muzaffar.mustafayev@ufaz.az</a
-                    >
-                  </td>
-                </tr>
-              </tbody>
+              <tbody id="mobile-details"></tbody>
             </table>
           </div>
         </section>
 
         <section id="jobs" class="main-content" aria-label="Work Experience">
           <h1>Work Experience</h1>
+          <div id="jobs-list"></div>
         </section>
 
         <section
           id="certificates"
           class="main-content"
           aria-label="Certificates"
-        ></section>
+        >
+          <h1>Certificates</h1>
+          <div id="certificates-list"></div>
+        </section>
 
         <!-- <section id="projects" class="main-content" aria-label="Projects">
           <h1>Projects</h1>
@@ -240,39 +117,6 @@
     </main>
 
     <footer role="contentinfo" class="site-footer"></footer>
-    <script>
-      const loadLandscapeImage = () => {
-        const container = document.getElementById("profile_image");
-        const photo = container?.querySelector("img.profile-photo");
-
-        const isLandscape = window.innerWidth > window.innerHeight;
-
-        if (isLandscape && !photo) {
-          const img = new Image(160, 160);
-          img.src = "img/Muzaffar.webp";
-          img.alt = "Portrait photo of Muzaffar Mustafayev";
-          img.className = "profile-photo";
-          img.style.width = "160px";
-          img.style.height = "160px";
-          container.appendChild(img);
-        } else if (!isLandscape && photo) {
-          photo.remove();
-        }
-      };
-
-      window.addEventListener("load", loadLandscapeImage);
-      window.addEventListener("resize", loadLandscapeImage);
-    </script>
-
-    <script src="./js/main.js"></script>
-    <script>
-      document
-        .getElementById("toggleProfile")
-        .addEventListener("click", function () {
-          const extra = document.getElementById("mobileExtra");
-          extra.style.display = "block";
-          this.style.display = "none";
-        });
-    </script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

@@ -256,6 +256,14 @@ td {
   .sidebar {
     display: none;
   }
+
+  .fix-resp-date {
+    flex-direction: column;
+  }
+
+  .fix-resp-date .job-date {
+    text-align: left;
+  }
 }
 
 @media print {
