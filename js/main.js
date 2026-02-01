@@ -7,7 +7,7 @@ import {
   renderCertificates,
   handleMobileToggle,
   initThemeControls,
-  loadLandscapeImage,
+  loadProfileImage,
 } from "./ui.js";
 
 const init = () => {
@@ -18,8 +18,7 @@ const init = () => {
   renderCertificates(certificates);
   handleMobileToggle();
   initThemeControls();
-  loadLandscapeImage(profile);
-  window.addEventListener("resize", () => loadLandscapeImage(profile));
+  loadProfileImage(profile);
 };
 
 document.addEventListener("DOMContentLoaded", init);

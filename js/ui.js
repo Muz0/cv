@@ -1,9 +1,9 @@
-export const INITIAL_VISIBLE_JOBS = 3;
-export const MAX_CERTIFICATES_RENDERED = 100;
+const INITIAL_VISIBLE_JOBS = 3;
+const MAX_CERTIFICATES_RENDERED = 100;
 
 const THEME_STORAGE_KEY = "preferred-theme";
 
-export const state = {
+const state = {
   showAllJobs: false,
   elements: {},
 };
@@ -29,22 +29,15 @@ const appendLines = (element, value) => {
 const normalizeTheme = (theme) =>
   theme === "dark" || theme === "light" ? theme : null;
 
-const storeThemePreference = (theme) => {
-  if (theme) {
-    localStorage.setItem(THEME_STORAGE_KEY, theme);
-  } else {
-    localStorage.removeItem(THEME_STORAGE_KEY);
-  }
-};
-
 const applyThemePreference = (theme) => {
   const normalized = normalizeTheme(theme);
   if (normalized) {
     document.body.dataset.theme = normalized;
+    localStorage.setItem(THEME_STORAGE_KEY, normalized);
   } else {
     document.body.removeAttribute("data-theme");
+    localStorage.removeItem(THEME_STORAGE_KEY);
   }
-  storeThemePreference(normalized);
   return normalized;
 };
 
@@ -314,20 +307,13 @@ export const initThemeControls = () => {
   });
 };
 
-export const loadLandscapeImage = (profile) => {
+export const loadProfileImage = (profile) => {
   const { profileImage } = state.elements;
-  if (!profileImage) return;
+  if (!profileImage || profileImage.querySelector("img.profile-photo")) return;
 
-  const photo = profileImage.querySelector("img.profile-photo");
-  const isLandscape = window.innerWidth > window.innerHeight;
-
-  if (isLandscape && !photo) {
-    const img = new Image(profile.photo.width, profile.photo.height);
-    img.src = profile.photo.src;
-    img.alt = profile.photo.alt;
-    img.className = "profile-photo";
-    profileImage.appendChild(img);
-  } else if (!isLandscape && photo) {
-    photo.remove();
-  }
+  const img = new Image(profile.photo.width, profile.photo.height);
+  img.src = profile.photo.src;
+  img.alt = profile.photo.alt;
+  img.className = "profile-photo";
+  profileImage.appendChild(img);
 };

@@ -123,10 +123,9 @@ main.layout {
 
 .main-content {
   background: var(--background-white);
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.5rem;
   border-radius: 8px;
   box-shadow: 0 1px 8px rgb(0 0 0 / 0.1);
-  box-sizing: border-box;
 }
 
 .main-sections li,
@@ -188,10 +187,6 @@ main.layout {
   user-select: none;
   border: none;
   padding: 17px;
-}
-
-.mail-circle-btn {
-  bottom: 1.5rem;
 }
 
 .theme-circle-btn {
@@ -256,8 +251,6 @@ main.layout {
   width: 100%;
   max-width: 220px;
 }
-
-
 
 /* =================== TYPOGRAPHY =================== */
 h1,
@@ -361,30 +354,86 @@ td {
 }
 
 @media print {
-  * {
-    background: var(--background-white);
+  @page {
+    size: A4;
+    margin: 1.2cm 1.5cm;
+  }
+
+  /* Force light-theme variables so print is always white-on-black,
+     even if the user has dark mode active */
+  :root,
+  body[data-theme="dark"],
+  body[data-theme="light"] {
+    --primary-blue: #0073e6;
+    --text-dark: #111;
+    --text-light: #555;
+    --background-light: #ececec;
+    --background-white: #fff;
+    --border-gray: #bbb;
+    --border-light: #ddd;
+    --background-body: #fff;
   }
 
   body {
+    color-scheme: light;
     font-size: 12pt;
   }
 
   main.layout {
     margin: 0;
+    padding: 0;
+    max-width: 100%;
+    gap: 0;
   }
 
-  nav,
-  footer,
-  button,
+  /* Hide web-only interactive elements */
+  .theme-circle-btn,
+  .mail-circle-btn,
   .mobile-profile-summary,
-  .sidebar #links,
-  .sidebar #profile_image,
-  .sidebar #contact h2,
-  .mail-circle-btn {
+  .show-more-btn,
+  footer {
     display: none !important;
   }
 
+  /* Strip card visuals and tighten padding for A4 */
   .sidebar {
     display: block;
+    flex-basis: 230px;
+    background: #fff;
+    border-right: 1px solid var(--border-light);
+    box-shadow: none;
+    border-radius: 0;
+    padding: 1rem;
+  }
+
+  .main-content {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 1rem 1.25rem;
+  }
+
+  .aside-section + .aside-section {
+    margin-top: 1.25rem;
+  }
+
+  .main-sections {
+    gap: 1.5rem;
+  }
+
+  /* Prevent sections from splitting across pages */
+  .work-experience,
+  .main-content {
+    break-inside: avoid;
+  }
+
+  .profile-photo {
+    box-shadow: none;
+  }
+
+  /* Show actual URLs next to link labels */
+  #links a::after {
+    content: ": " attr(href);
+    font-size: 0.85em;
+    color: var(--text-light);
   }
 }
