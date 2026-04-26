@@ -177,6 +177,19 @@ export const certificates = [
 
 export const jobs = [
   {
+    title: "Technip Energies",
+    position:
+      "Master Technology Transfer Program - Trainee - Baku Higher Oil School",
+    display: true,
+    date: "February - April 2026",
+    responsibilities: [
+      "Selected for competitive 8-week EPC project engineering program covering LNG/FLNG, hydrogen value chains (grey, blue, green), CCUS, and gas monetization (GTL/LNG).",
+      "Led simulation presentation for Azerikimya IB Ethylene Plant, analyzing process impact and delivering engineering recommendations.",
+      "Conducted technical analysis and calculations for SMR-to-hydrogen fuel transition with integrated CCUS, including decarbonization pathway, equipment adaptation, and carbon capture implementation.",
+      "Studied EPC plant disciplines (piping, instrumentation, automation, material selection) and completed project management modules for large-scale multi-disciplinary energy infrastructure.",
+    ],
+  },
+  {
     title: "SOCAR Downstream Management",
     position: "Process Engineering Intern - Baku Oil Refinery",
     display: true,
