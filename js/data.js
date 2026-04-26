@@ -1,7 +1,7 @@
 export const profile = {
   name: "Muzaffar Mustafayev",
   summary:
-    "Graduate Chemical engineer experienced in catalyst monitoring, process optimization, and reactor operations.",
+    "Chemical Engineer experienced in catalyst monitoring, process optimization, and reactor operations.",
   photo: {
     src: "img/Muzaffar.webp",
     width: 160,
@@ -12,7 +12,7 @@ export const profile = {
     {
       label: "Profile",
       value:
-        "Graduate Chemical engineer experienced in catalyst monitoring, process optimization, and reactor operations.",
+        "Chemical Engineer experienced in catalyst monitoring, process optimization, and reactor operations.",
     },
     {
       label: "Bachelor's Degree",
@@ -74,6 +74,13 @@ export const profile = {
 };
 
 export const certificates = [
+  {
+    name: "American institute of Chemical Engineers",
+    display: true,
+    description: "Hazard Identification and Risk Analysis",
+    date: "2026",
+    category: "Technical",
+  },
   {
     name: "Schlumberger",
     display: true,
@@ -139,7 +146,7 @@ export const certificates = [
   },
   {
     name: "University of Michigan",
-    display: true,
+    display: false,
     description: "Getting Started with Python, Coursera",
     date: "2022",
     category: "Technical",
