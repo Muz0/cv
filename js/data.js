@@ -82,18 +82,18 @@ export const certificates = [
     category: "Technical",
   },
   {
+    name: "UFAZ ChemE Club",
+    display: true,
+    description: "Advanced Process Equipment & Safety Workshop",
+    date: "2025",
+    category: "Technical",
+  },
+  {
     name: "Schlumberger",
     display: true,
     description: "HSE in the Energy Sector",
     date: "2024",
     category: "Professional",
-  },
-  {
-    name: "UFAZ ChemEng Club",
-    display: true,
-    description: "Advanced Process Equipment & Safety Workshop",
-    date: "2025",
-    category: "Technical",
   },
   {
     name: "U.S. Department of State",
