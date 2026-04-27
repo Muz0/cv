@@ -177,6 +177,18 @@ export const certificates = [
 
 export const jobs = [
   {
+    title: "Carlsberg Group",
+    position: "HSE Specialist",
+    display: true,
+    date: "May, 2026 - Present",
+    responsibilities: [
+      "Supported daily HSE operations by monitoring workplace conditions, identifying hazards, and following up on corrective actions across production and operational areas.",
+      "Conducted safety inspections and risk assessments to help maintain compliance with company HSE standards and local regulatory requirements.",
+      "Assisted in incident reporting and investigation processes, documenting findings and supporting preventive action plans to reduce recurrence.",
+      "Delivered HSE briefings and promoted safe work practices for employees and contractors, strengthening awareness of occupational health, safety, and environmental procedures.",
+    ],
+  },
+  {
     title: "Technip Energies",
     position:
       "Master Technology Transfer Program - Trainee - Baku Higher Oil School",
@@ -190,7 +202,7 @@ export const jobs = [
     ],
   },
   {
-    title: "SOCAR Downstream Management",
+    title: "SOCAR Downstream",
     position: "Process Engineering Intern - Baku Oil Refinery",
     display: true,
     responsibilities: [
