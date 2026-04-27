@@ -179,7 +179,7 @@ export const jobs = [
   {
     title: "Carlsberg Group",
     position: "HSE Specialist",
-    display: true,
+    // display: true,
     date: "May, 2026 - Present",
     responsibilities: [
       "Supported daily HSE operations by monitoring workplace conditions, identifying hazards, and following up on corrective actions across production and operational areas.",
